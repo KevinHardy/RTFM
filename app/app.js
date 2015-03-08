@@ -29,8 +29,10 @@ app.config(function($routeProvider) {
 app.run(function($rootScope, $location, EnvironmentService) {
 
 	$rootScope.$on($routeChangeStart, function() {
-		if (EnvironmentService.getUserName()) {
-			
+		if (!EnvironmentService.getUserName()) {
+			$location.path('/login');
+		} else {
+			return $rootScope.getUserName();
 		}
 	})
 
