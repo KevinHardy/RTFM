@@ -1,10 +1,8 @@
-'use strict';
+//'use strict';
 
 var app = angular.module('rtfmApp');
 
-app.controller('ThreadsCtrl', function($scope, threadsrefm $routeProvider) {
-
-	$scope.threads = threadsRef.$asArray();
+app.controller('ThreadsCtrl', function($scope, threadsRef) {
 
 	$scope.threads = threadsRef.$asArray();
 
@@ -18,18 +16,5 @@ app.controller('ThreadsCtrl', function($scope, threadsrefm $routeProvider) {
         title: title
       });
     }
-
-	$routeProvider
-	.when('/threads', {
-		templateUrl: 'views/threads.html',
-		controller: 'ThreadsCtrl',
-		resolve: {
-		threadsRef: function (ThreadService) {
-				return ThreadService.getThreads();
-			}
-		}
-	})
-
-
 
 });
